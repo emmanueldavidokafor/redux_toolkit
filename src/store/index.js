@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore } from 'redux'; //used configureStore instead of createStore
 
 const counterReducer = (state = { counter: 0 }, action) => {
 	if (action.type === 'increment') {
