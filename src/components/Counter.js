@@ -2,12 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { counterActions } from '../store/counter';
 
 import classes from './Counter.module.css';
-// import { Component } from 'react';
 
 const Counter = () => {
 	const dispatch = useDispatch();
-	const counter = useSelector((state) => state.counter);
-	const showCounter = useSelector((state) => state.showCounter);
+	const counter = useSelector((state) => state.counter.counter);
+	const showCounter = useSelector((state) => state.counter.showCounter);
 
 	const incrementHandler = () => {
 		dispatch(counterActions.increment());
@@ -39,3 +38,45 @@ const Counter = () => {
 };
 
 export default Counter;
+
+// import { useSelector, useDispatch } from 'react-redux';
+// import { counterActions } from '../store/counter';
+
+// import classes from './Counter.module.css';
+
+// const Counter = () => {
+// 	const dispatch = useDispatch();
+// 	const counter = useSelector((state) => state.counter.counter); // Accessing counter from the slice
+// 	const showCounter = useSelector((state) => state.counter.showCounter); // Accessing showCounter from the slice
+
+// 	const incrementHandler = () => {
+// 		dispatch(counterActions.increment());
+// 	};
+
+// 	const increaseHandler = () => {
+// 		dispatch(counterActions.increase(10)); // {type: some_unique_identifier, payload}
+// 	};
+// 	const decrementHandler = () => {
+// 		dispatch(counterActions.decrement());
+// 	};
+
+// 	const toggleCounterHandler = () => {
+// 		dispatch(counterActions.toggleCounter());
+// 	};
+
+// 	return (
+// 		<main className={classes.counter}>
+// 			<h1>Redux Counter</h1>
+// 			{showCounter && <div className={classes.value}>{counter}</div>}{' '}
+// 			{/* Use counter here */}
+// 			<div>
+// 				<button onClick={incrementHandler}>Increment</button>
+// 				<button onClick={increaseHandler}>Increase by 5</button>
+// 				<button onClick={decrementHandler}>Decrement</button>
+// 			</div>
+// 			<button onClick={toggleCounterHandler}>Toggle Counter</button>
+// 		</main>
+// 	);
+// };
+
+// export default Counter;
